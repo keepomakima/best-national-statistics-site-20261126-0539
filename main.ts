@@ -5,16 +5,19 @@
 // first load's files and bytes, and your source), with the vendored make.fun library. Leave vendor/makefun-frontend.ts
 // as it is: the scorer requires dossier.json to be byte for byte what its own copy writes.
 //
-// A starting point, not a winner: a plain recipe collection, a list of recipes and a page for each. Build the site the
-// brief asks for in app/ (its content, ease of use, a phone layout, its look), put 3 or 4 PNG or JPEG screenshots of
-// it running in screenshots/ (the first by name is the cover; one may be a 390 x 844 phone view; shots.json says which
-// views this starter's were taken of), and run it.
+// Entrypoint for this entry — a national statistics site (BPS-style indicators,
+// population, regions, and data tables), not the starter's recipe collection:
+// the site lives in app/ (static ES-module pages, no build step, no network),
+// screenshots/ holds 4 views (the first by name is the cover, one is a 390 x 844
+// phone view), and this program hands both in plus /output/dossier.json, the
+// summary the judge reads. It must exit non-zero if the dossier is missing or
+// empty, so a broken hand-in fails here instead of reaching the grader.
 //
 // Serve it locally with `node serve.ts`, then open http://localhost:8080.
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-frontend.ts';
@@ -34,3 +37,11 @@ writeFileSync(
   join(out, 'dossier.json'),
   buildDossier(out, { text_max_bytes: 163840, screenshots: { max: 4, max_bytes: 262144 }, app_max_files: 993, app_max_bytes: 16777216 }),
 );
+
+// Guard: the judge reads /output/dossier.json, so fail loudly here instead of
+// handing in a missing or empty summary. This only reads back what was just
+// written and never changes the dossier's bytes.
+const dossierPath = join(out, 'dossier.json');
+const dossierBytes = statSync(dossierPath).size;
+if (dossierBytes === 0) throw new Error(`dossier empty: ${dossierPath}`);
+console.log(`dossier written: ${dossierBytes} bytes -> ${dossierPath}`);
