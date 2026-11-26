@@ -74,6 +74,7 @@ nav.mainnav a.active { color: #fff; border-bottom-color: var(--amber); font-weig
 .page-head { margin-bottom: 20px; }
 .page-head p.lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 72ch; }
 .grid { display: grid; gap: 18px; }
+.grid > * { min-width: 0; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .card {
@@ -176,6 +177,14 @@ footer.site a { color: #fff; }
 /* Responsif: phone */
 @media (max-width: 900px) {
   .indicators { grid-template-columns: repeat(3, 1fr); }
+  /* Label indikator boleh melipat mulai 3 kolom: kalau tidak, label nowrap
+     terpanjang memaksa kolom melebar melewati viewport (tablet ~640-720px). */
+  .indicator .lbl, .indicator .val { white-space: normal; }
+  /* Tabel lebar (7 kolom di Tabel Data) tidak boleh melebarkan halaman:
+     tabel menggulir di dalam kartu, halaman tetap selebar viewport. */
+  table { display: block; overflow-x: auto; }
+  /* Select dengan opsi panjang (saring pulau) tidak boleh melebarkan kartu. */
+  .controls select, .controls input[type="search"], .controls input[type="text"] { max-width: 100%; min-width: 0; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .pagelinks { grid-template-columns: 1fr 1fr; }
   .dateline { margin-left: 0; text-align: left; }
@@ -184,7 +193,11 @@ footer.site a { color: #fff; }
   h1 { font-size: 1.55rem; }
   .brand { font-size: 1.35rem; }
   .indicators { grid-template-columns: repeat(2, 1fr); }
+  .indicator { min-width: 0; }
   .indicator .val { font-size: 1.25rem; }
+  /* Label/nilai indikator boleh melipat: nowrap + min-width grid membuat
+     kolom melebar melewati viewport (cacat 4-mobile.jpg). */
+  .indicator .lbl, .indicator .val { white-space: normal; }
   nav.mainnav ul { gap: 0; }
   nav.mainnav a { padding: 9px 10px; font-size: .88rem; }
   .wrap { padding: 18px 14px 32px; }
@@ -193,4 +206,8 @@ footer.site a { color: #fff; }
   table { font-size: .85rem; }
   th, td { padding: 6px 6px; }
   .legend-list { grid-template-columns: 1fr; }
+}
+/* Phone sempit: kartu indikator satu kolom penuh, tidak ada yang terpotong. */
+@media (max-width: 480px) {
+  .indicators { grid-template-columns: 1fr; }
 }
