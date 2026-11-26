@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ekonomi — Portal Statistik Indonesia</title>
+<meta name="description" content="Ekonomi Indonesia 2015–2024: PDB nominal, pertumbuhan riil, komposisi sektoral, dan perdagangan luar negeri.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body data-page="economy">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="index.html">Portal Statistik <span>Indonesia</span></a>
+    <span class="tagline">Angka resmi Indonesia, dibaca dalam satu tempat</span>
+    <span class="dateline">Data terakhir diperbarui:<br>26 November 2026</span>
+  </div>
+  <nav class="mainnav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penduduk.html">Penduduk</a></li>
+      <li><a href="ekonomi.html" class="active" aria-current="page">Ekonomi</a></li>
+      <li><a href="harga.html">Harga &amp; Inflasi</a></li>
+      <li><a href="ketenagakerjaan.html">Ketenagakerjaan</a></li>
+      <li><a href="wilayah.html">Wilayah</a></li>
+      <li><a href="data.html">Tabel Data</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Ekonomi</h1>
+    <p class="lede">PDB Indonesia mencapai Rp22.139 triliun pada 2024 dengan pertumbuhan riil 5,03 persen — ekonomi terbesar di Asia Tenggara, ditopang industri pengolahan, perdagangan, dan pertanian.</p>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>PDB nominal menurut tahun</h2>
+      <div class="controls">
+        <label for="year-select">Pilih tahun:</label>
+        <select id="year-select"></select>
+        <span class="muted" id="gdp-year-label">Tahun 2024</span>
+      </div>
+      <div class="stat-row">
+        <div><div class="k">PDB nominal</div><div class="kpi-big" id="gdp-value">Rp22.139 <small>triliun</small></div></div>
+        <div><div class="k">Pertumbuhan riil</div><div class="kpi-big" id="gdp-growth">5,03% yoy (riil)</div></div>
+        <div><div class="k">PDB per kapita 2024</div><div class="kpi-big">US$4.960 <small>/ jiwa</small></div></div>
+      </div>
+      <div id="chart-gdp-trend"></div>
+      <p class="chart-note">PDB atas dasar harga berlaku, 2015–2024 (Rp triliun). Pilih tahun di atas untuk menyorot titiknya di grafik.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Pertumbuhan ekonomi riil, 2015–2024</h2>
+      <div id="chart-gdp-growth"></div>
+      <p class="chart-note">Pertumbuhan PDB riil (% yoy). Kontraksi −2,07 persen pada 2020 adalah dampak pandemi; sejak 2022 pertumbuhan kembali stabil di kisaran 5 persen.</p>
+    </section>
+
+    <section class="card">
+      <h2>Komposisi PDB 2024</h2>
+      <div id="chart-sectors"></div>
+      <div id="sector-legend"></div>
+    </section>
+
+    <section class="card">
+      <h2>Perdagangan luar negeri 2024</h2>
+      <div class="stat-row">
+        <div><div class="k">Ekspor</div><div class="kpi-big">US$264,7 <small>miliar</small></div></div>
+        <div><div class="k">Impor</div><div class="kpi-big">US$233,7 <small>miliar</small></div></div>
+        <div><div class="k">Surplus neraca dagang</div><div class="kpi-big">US$31,0 <small>miliar</small></div></div>
+      </div>
+      <p>Indonesia mencatat surplus perdagangan US$31,0 miliar pada 2024 — tahun kelima berturut-turut neraca dagang surplus. Ekspor terbesar berasal dari batu bara, minyak kelapa sawit, serta besi dan baja; impor terbesar adalah mesin, bahan bakar, dan bahan kimia.</p>
+      <h3>PDB per kapita</h3>
+      <p>PDB per kapita 2024 mencapai US$4.960, naik dari US$4.872 pada 2023. Dalam rupiah, PDB per kapita 2024 sekitar Rp78,6 juta per jiwa.</p>
+      <p class="source-note">Sumber data: Badan Pusat Statistik (BPS), publikasi 2019–2025.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><strong>Portal Statistik Indonesia</strong> — portal statistik nasional orisinal.</span>
+    <span>Sumber data: BPS, publikasi 2019–2025.</span>
+    <span>Terakhir diperbarui: 26 November 2026.</span>
+    <span><a href="data.html">Tabel Data</a> · <a href="wilayah.html">Wilayah</a></span>
+  </div>
+</footer>
+</body>
+</html>

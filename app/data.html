@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabel Data — Portal Statistik Indonesia</title>
+<meta name="description" content="Semua indikator utama Indonesia 2015–2024 dalam satu tabel besar yang bisa disortir, disaring, dan dicari — plus tabel provinsi.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body data-page="data">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="index.html">Portal Statistik <span>Indonesia</span></a>
+    <span class="tagline">Angka resmi Indonesia, dibaca dalam satu tempat</span>
+    <span class="dateline">Data terakhir diperbarui:<br>26 November 2026</span>
+  </div>
+  <nav class="mainnav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penduduk.html">Penduduk</a></li>
+      <li><a href="ekonomi.html">Ekonomi</a></li>
+      <li><a href="harga.html">Harga &amp; Inflasi</a></li>
+      <li><a href="ketenagakerjaan.html">Ketenagakerjaan</a></li>
+      <li><a href="wilayah.html">Wilayah</a></li>
+      <li><a href="data.html" class="active" aria-current="page">Tabel Data</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Tabel Data</h1>
+    <p class="lede">Semua indikator utama Indonesia 2015–2024 dalam satu tabel. Klik judul kolom untuk mengurutkan, ketik di kotak pencarian untuk menyaring tahun. Tanda “—” berarti indikator itu belum dirilis untuk tahun tersebut dalam seri yang dipakai portal ini.</p>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>Indikator utama menurut tahun</h2>
+      <div class="controls">
+        <label for="table-search">Cari tahun:</label>
+        <input type="search" id="table-search" placeholder="mis. 2020" aria-label="Cari tahun">
+        <span class="muted" id="row-count">10 baris ditampilkan dari 10 tahun.</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="sortable" data-key="year">Tahun</th>
+            <th class="sortable num" data-key="population">Penduduk (juta)</th>
+            <th class="sortable num" data-key="gdp">PDB nominal (Rp triliun)</th>
+            <th class="sortable num" data-key="growth">Pertumbuhan (% yoy)</th>
+            <th class="sortable num" data-key="inflation">Inflasi Des (% yoy)</th>
+            <th class="sortable num" data-key="unemployment">Pengangguran Agu (%)</th>
+            <th class="sortable num" data-key="poverty">Kemiskinan Sep (%)</th>
+          </tr>
+        </thead>
+        <tbody id="data-rows"></tbody>
+      </table>
+      <p class="chart-note">Pertumbuhan adalah pertumbuhan PDB riil. Inflasi Desember, pengangguran Agustus, dan kemiskinan September adalah angka pada bulan survei masing-masing. Klik judul kolom untuk mengurutkan naik/turun.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Provinsi menurut pulau</h2>
+      <div class="controls">
+        <label for="table-category">Saring pulau:</label>
+        <select id="table-category">
+          <option value="all">Semua pulau</option>
+          <option value="jawa">Jawa</option>
+          <option value="sumatera">Sumatera</option>
+          <option value="sulawesi">Sulawesi</option>
+          <option value="lainnya">Kalimantan, Bali &amp; Nusa Tenggara, Maluku &amp; Papua</option>
+        </select>
+        <label for="prov-search">Cari provinsi:</label>
+        <input type="search" id="prov-search" placeholder="mis. Jawa" aria-label="Cari provinsi">
+      </div>
+      <table id="prov-table">
+        <thead><tr><th>Provinsi</th><th>Pulau</th><th class="num">Penduduk 2024 (juta)</th><th>Ibu kota</th></tr></thead>
+        <tbody>
+          <tr data-cat="sumatera"><td>Aceh</td><td>Sumatera</td><td class="num">5,6</td><td>Banda Aceh</td></tr>
+          <tr data-cat="sumatera"><td>Sumatera Utara</td><td>Sumatera</td><td class="num">15,6</td><td>Medan</td></tr>
+          <tr data-cat="sumatera"><td>Sumatera Barat</td><td>Sumatera</td><td class="num">5,9</td><td>Padang</td></tr>
+          <tr data-cat="sumatera"><td>Riau</td><td>Sumatera</td><td class="num">6,9</td><td>Pekanbaru</td></tr>
+          <tr data-cat="sumatera"><td>Jambi</td><td>Sumatera</td><td class="num">3,7</td><td>Jambi</td></tr>
+          <tr data-cat="sumatera"><td>Sumatera Selatan</td><td>Sumatera</td><td class="num">8,9</td><td>Palembang</td></tr>
+          <tr data-cat="sumatera"><td>Bengkulu</td><td>Sumatera</td><td class="num">2,1</td><td>Bengkulu</td></tr>
+          <tr data-cat="sumatera"><td>Lampung</td><td>Sumatera</td><td class="num">9,3</td><td>Bandar Lampung</td></tr>
+          <tr data-cat="sumatera"><td>Kep. Bangka Belitung</td><td>Sumatera</td><td class="num">1,5</td><td>Pangkal Pinang</td></tr>
+          <tr data-cat="sumatera"><td>Kep. Riau</td><td>Sumatera</td><td class="num">2,3</td><td>Tanjung Pinang</td></tr>
+          <tr data-cat="jawa"><td>DKI Jakarta</td><td>Jawa</td><td class="num">10,6</td><td>Jakarta</td></tr>
+          <tr data-cat="jawa"><td>Jawa Barat</td><td>Jawa</td><td class="num">50,4</td><td>Bandung</td></tr>
+          <tr data-cat="jawa"><td>Jawa Tengah</td><td>Jawa</td><td class="num">38,3</td><td>Semarang</td></tr>
+          <tr data-cat="jawa"><td>DI Yogyakarta</td><td>Jawa</td><td class="num">3,8</td><td>Yogyakarta</td></tr>
+          <tr data-cat="jawa"><td>Jawa Timur</td><td>Jawa</td><td class="num">41,8</td><td>Surabaya</td></tr>
+          <tr data-cat="jawa"><td>Banten</td><td>Jawa</td><td class="num">12,4</td><td>Serang</td></tr>
+          <tr data-cat="lainnya"><td>Bali</td><td>Bali &amp; Nusa Tenggara</td><td class="num">4,4</td><td>Denpasar</td></tr>
+          <tr data-cat="lainnya"><td>Nusa Tenggara Barat</td><td>Bali &amp; Nusa Tenggara</td><td class="num">5,6</td><td>Mataram</td></tr>
+          <tr data-cat="lainnya"><td>Nusa Tenggara Timur</td><td>Bali &amp; Nusa Tenggara</td><td class="num">5,7</td><td>Kupang</td></tr>
+          <tr data-cat="lainnya"><td>Kalimantan Barat</td><td>Kalimantan</td><td class="num">5,8</td><td>Pontianak</td></tr>
+          <tr data-cat="lainnya"><td>Kalimantan Tengah</td><td>Kalimantan</td><td class="num">2,8</td><td>Palangka Raya</td></tr>
+          <tr data-cat="lainnya"><td>Kalimantan Selatan</td><td>Kalimantan</td><td class="num">4,3</td><td>Banjarmasin</td></tr>
+          <tr data-cat="lainnya"><td>Kalimantan Timur</td><td>Kalimantan</td><td class="num">4,0</td><td>Samarinda</td></tr>
+          <tr data-cat="lainnya"><td>Kalimantan Utara</td><td>Kalimantan</td><td class="num">0,7</td><td>Tanjung Selor</td></tr>
+          <tr data-cat="sulawesi"><td>Sulawesi Utara</td><td>Sulawesi</td><td class="num">2,8</td><td>Manado</td></tr>
+          <tr data-cat="sulawesi"><td>Sulawesi Tengah</td><td>Sulawesi</td><td class="num">3,1</td><td>Palu</td></tr>
+          <tr data-cat="sulawesi"><td>Sulawesi Selatan</td><td>Sulawesi</td><td class="num">9,5</td><td>Makassar</td></tr>
+          <tr data-cat="sulawesi"><td>Sulawesi Tenggara</td><td>Sulawesi</td><td class="num">2,8</td><td>Kendari</td></tr>
+          <tr data-cat="sulawesi"><td>Gorontalo</td><td>Sulawesi</td><td class="num">1,3</td><td>Gorontalo</td></tr>
+          <tr data-cat="sulawesi"><td>Sulawesi Barat</td><td>Sulawesi</td><td class="num">1,6</td><td>Mamuju</td></tr>
+          <tr data-cat="lainnya"><td>Maluku</td><td>Maluku &amp; Papua</td><td class="num">2,0</td><td>Ambon</td></tr>
+          <tr data-cat="lainnya"><td>Maluku Utara</td><td>Maluku &amp; Papua</td><td class="num">1,4</td><td>Sofifi</td></tr>
+          <tr data-cat="lainnya"><td>Papua Barat</td><td>Maluku &amp; Papua</td><td class="num">1,2</td><td>Manokwari</td></tr>
+          <tr data-cat="lainnya"><td>Papua</td><td>Maluku &amp; Papua</td><td class="num">1,1</td><td>Jayapura</td></tr>
+        </tbody>
+      </table>
+      <p class="chart-note">34 dari 38 provinsi ditampilkan (empat provinsi pemekaran Papua terbaru belum dimasukkan ke seri ini). Angka penduduk adalah perkiraan 2024, dibulatkan ke satu desimal.</p>
+      <p class="source-note">Sumber data: Badan Pusat Statistik (BPS), publikasi 2019–2025. Angka disajikan ulang oleh portal ini.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><strong>Portal Statistik Indonesia</strong> — portal statistik nasional orisinal.</span>
+    <span>Sumber data: BPS, publikasi 2019–2025.</span>
+    <span>Terakhir diperbarui: 26 November 2026.</span>
+    <span><a href="index.html">Beranda</a> · <a href="wilayah.html">Wilayah</a></span>
+  </div>
+</footer>
+</body>
+</html>

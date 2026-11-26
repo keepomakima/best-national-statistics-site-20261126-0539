@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ketenagakerjaan — Portal Statistik Indonesia</title>
+<meta name="description" content="Ketenagakerjaan Indonesia: tingkat pengangguran terbuka, partisipasi angkatan kerja, dan sebaran penduduk bekerja menurut lapangan usaha.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body data-page="labour">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="index.html">Portal Statistik <span>Indonesia</span></a>
+    <span class="tagline">Angka resmi Indonesia, dibaca dalam satu tempat</span>
+    <span class="dateline">Data terakhir diperbarui:<br>26 November 2026</span>
+  </div>
+  <nav class="mainnav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penduduk.html">Penduduk</a></li>
+      <li><a href="ekonomi.html">Ekonomi</a></li>
+      <li><a href="harga.html">Harga &amp; Inflasi</a></li>
+      <li><a href="ketenagakerjaan.html" class="active" aria-current="page">Ketenagakerjaan</a></li>
+      <li><a href="wilayah.html">Wilayah</a></li>
+      <li><a href="data.html">Tabel Data</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Ketenagakerjaan</h1>
+    <p class="lede">Tingkat pengangguran terbuka turun menjadi 4,91 persen pada Agustus 2024 — terendah sejak sebelum pandemi — sementara partisipasi angkatan kerja naik ke 70,63 persen. Pertanian masih menyerap pekerja terbanyak.</p>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>Pengangguran dan partisipasi kerja</h2>
+      <div class="controls">
+        <label for="year-select">Pilih tahun:</label>
+        <select id="year-select"></select>
+        <span class="muted" id="labour-year-label">Agustus 2024</span>
+      </div>
+      <div class="stat-row">
+        <div><div class="k">Tingkat pengangguran terbuka</div><div class="kpi-big" id="tpt-value">4,91<small>%</small></div></div>
+        <div><div class="k">Partisipasi angkatan kerja (TPAK)</div><div class="kpi-big" id="tpak-value">70,63<small>%</small></div></div>
+        <div><div class="k">Angkatan kerja Agu 2024</div><div class="kpi-big">152,1 <small>juta orang</small></div></div>
+      </div>
+      <div id="chart-tpt"></div>
+      <p class="chart-note">Tingkat pengangguran terbuka (Agustus) 2019–2024 (%). Puncak 7,07 persen pada Agustus 2020 adalah dampak pandemi; pemulihan berlanjut tiap tahun sejak itu.</p>
+      <div id="chart-tpak"></div>
+      <p class="chart-note">Tingkat partisipasi angkatan kerja (Agustus) 2019–2024 (%). TPAK 2024 sebesar 70,63 persen adalah yang tertinggi dalam periode ini.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Di mana orang Indonesia bekerja? (Agustus 2024)</h2>
+      <div id="chart-emp-sectors"></div>
+      <table>
+        <thead><tr><th>Lapangan usaha</th><th class="num">Pangsa pekerja (%)</th></tr></thead>
+        <tbody>
+          <tr><td>Pertanian, kehutanan &amp; perikanan</td><td class="num">27,9</td></tr>
+          <tr><td>Perdagangan</td><td class="num">19,2</td></tr>
+          <tr><td>Industri pengolahan</td><td class="num">13,4</td></tr>
+          <tr><td>Konstruksi</td><td class="num">9,5</td></tr>
+          <tr><td>Jasa kemasyarakatan &amp; pemerintahan</td><td class="num">16,5</td></tr>
+          <tr><td>Akomodasi &amp; makan minum</td><td class="num">6,0</td></tr>
+          <tr><td>Transportasi &amp; pergudangan</td><td class="num">4,9</td></tr>
+          <tr><td>Lapangan usaha lainnya</td><td class="num">2,6</td></tr>
+        </tbody>
+      </table>
+      <p class="chart-note">Pangsa penduduk bekerja menurut lapangan usaha utama, Agustus 2024 (%). Sektor informal masih besar: hampir 60 persen pekerja berada di sektor informal.</p>
+      <p class="source-note">Sumber data: Badan Pusat Statistik (BPS), Survei Angkatan Kerja Nasional (Sakernas), publikasi 2019–2025.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><strong>Portal Statistik Indonesia</strong> — portal statistik nasional orisinal.</span>
+    <span>Sumber data: BPS, publikasi 2019–2025.</span>
+    <span>Terakhir diperbarui: 26 November 2026.</span>
+    <span><a href="data.html">Tabel Data</a> · <a href="wilayah.html">Wilayah</a></span>
+  </div>
+</footer>
+</body>
+</html>

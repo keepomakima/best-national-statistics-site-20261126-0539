@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harga &amp; Inflasi — Portal Statistik Indonesia</title>
+<meta name="description" content="Inflasi Indonesia: tren bulanan 2024, inflasi tahunan 2019–2024, dan inflasi per kelompok pengeluaran.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body data-page="prices">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="index.html">Portal Statistik <span>Indonesia</span></a>
+    <span class="tagline">Angka resmi Indonesia, dibaca dalam satu tempat</span>
+    <span class="dateline">Data terakhir diperbarui:<br>26 November 2026</span>
+  </div>
+  <nav class="mainnav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penduduk.html">Penduduk</a></li>
+      <li><a href="ekonomi.html">Ekonomi</a></li>
+      <li><a href="harga.html" class="active" aria-current="page">Harga &amp; Inflasi</a></li>
+      <li><a href="ketenagakerjaan.html">Ketenagakerjaan</a></li>
+      <li><a href="wilayah.html">Wilayah</a></li>
+      <li><a href="data.html">Tabel Data</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Harga &amp; Inflasi</h1>
+    <p class="lede">Inflasi Desember 2024 hanya 1,57 persen (yoy) — terendah sejak 2021 dan di bawah sasaran 2,5 persen ±1. Sepanjang 2024 inflasi melandai bulan demi bulan, dari 3,05 persen pada Maret menjadi 1,55 persen pada November.</p>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>Inflasi tahunan (Desember, yoy)</h2>
+      <div class="controls">
+        <label for="year-select">Pilih tahun:</label>
+        <select id="year-select"></select>
+        <span class="muted" id="infl-year-label">Inflasi Desember 2024 (yoy)</span>
+      </div>
+      <div class="stat-row">
+        <div><div class="k">Inflasi Desember</div><div class="kpi-big" id="infl-value">1,57<small>% yoy</small></div></div>
+        <div><div class="k">Sasaran inflasi</div><div class="kpi-big">2,5% <small>±1 poin</small></div></div>
+      </div>
+      <div id="chart-infl-annual"></div>
+      <p class="chart-note">Inflasi Desember (yoy) 2019–2024 (%). Lonjakan 5,51 persen pada 2022 dipicu penyesuaian harga BBM bersubsidi; sejak itu inflasi kembali ke dalam sasaran.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Inflasi bulanan 2024 (yoy)</h2>
+      <div id="chart-infl-monthly"></div>
+      <p class="chart-note">Inflasi year-on-year tiap bulan, Januari–Desember 2024 (%). Puncaknya 3,05 persen pada Maret (menjelang Ramadan), lalu melandai hingga akhir tahun.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Inflasi per kelompok pengeluaran, Desember 2024</h2>
+      <div id="chart-cpi-groups"></div>
+      <p class="chart-note">Inflasi yoy per kelompok pengeluaran (%). Perawatan pribadi dan jasa lainnya paling tinggi (5,76%), sementara informasi, komunikasi, dan jasa keuangan nyaris tidak naik (0,06%).</p>
+      <table>
+        <thead><tr><th>Kelompok pengeluaran</th><th class="num">Inflasi Des 2024 (yoy, %)</th></tr></thead>
+        <tbody>
+          <tr><td>Makanan, minuman &amp; tembakau</td><td class="num">2,04</td></tr>
+          <tr><td>Pakaian &amp; alas kaki</td><td class="num">1,03</td></tr>
+          <tr><td>Perumahan, air, listrik &amp; bahan bakar</td><td class="num">0,65</td></tr>
+          <tr><td>Perlengkapan rumah tangga</td><td class="num">1,02</td></tr>
+          <tr><td>Kesehatan</td><td class="num">1,69</td></tr>
+          <tr><td>Transportasi</td><td class="num">0,61</td></tr>
+          <tr><td>Informasi, komunikasi &amp; jasa keuangan</td><td class="num">0,06</td></tr>
+          <tr><td>Rekreasi, olahraga &amp; budaya</td><td class="num">0,92</td></tr>
+          <tr><td>Pendidikan</td><td class="num">1,78</td></tr>
+          <tr><td>Penyediaan makanan &amp; minuman / restoran</td><td class="num">2,19</td></tr>
+          <tr><td>Perawatan pribadi &amp; jasa lainnya</td><td class="num">5,76</td></tr>
+        </tbody>
+      </table>
+      <p class="source-note">Sumber data: Badan Pusat Statistik (BPS), publikasi 2019–2025. IHK = Indeks Harga Konsumen, 90 kota.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><strong>Portal Statistik Indonesia</strong> — portal statistik nasional orisinal.</span>
+    <span>Sumber data: BPS, publikasi 2019–2025.</span>
+    <span>Terakhir diperbarui: 26 November 2026.</span>
+    <span><a href="data.html">Tabel Data</a> · <a href="wilayah.html">Wilayah</a></span>
+  </div>
+</footer>
+</body>
+</html>

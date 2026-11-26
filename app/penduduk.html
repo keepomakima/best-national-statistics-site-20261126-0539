@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penduduk — Portal Statistik Indonesia</title>
+<meta name="description" content="Penduduk Indonesia 2015–2024: piramida umur, tren jumlah penduduk, dan sepuluh provinsi terpadat.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body data-page="population">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="index.html">Portal Statistik <span>Indonesia</span></a>
+    <span class="tagline">Angka resmi Indonesia, dibaca dalam satu tempat</span>
+    <span class="dateline">Data terakhir diperbarui:<br>26 November 2026</span>
+  </div>
+  <nav class="mainnav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penduduk.html" class="active" aria-current="page">Penduduk</a></li>
+      <li><a href="ekonomi.html">Ekonomi</a></li>
+      <li><a href="harga.html">Harga &amp; Inflasi</a></li>
+      <li><a href="ketenagakerjaan.html">Ketenagakerjaan</a></li>
+      <li><a href="wilayah.html">Wilayah</a></li>
+      <li><a href="data.html">Tabel Data</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Penduduk</h1>
+    <p class="lede">Indonesia dihuni 283,5 juta jiwa pada 2024 — negara berpenduduk terbesar keempat di dunia. Lebih dari separuh penduduk tinggal di Jawa, dan usia produktif masih mendominasi piramida.</p>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>Jumlah penduduk menurut tahun</h2>
+      <div class="controls">
+        <label for="year-select">Pilih tahun:</label>
+        <select id="year-select"></select>
+        <span class="muted" id="pop-year-label">Tahun 2024</span>
+      </div>
+      <div class="stat-row">
+        <div><div class="k">Jumlah penduduk</div><div class="kpi-big" id="pop-value">283,5 <small>juta jiwa</small></div></div>
+        <div><div class="k">Pertumbuhan tahunan</div><div class="kpi-big" id="pop-growth">+1,00% vs 2023</div></div>
+      </div>
+      <div id="chart-pop-trend"></div>
+      <p class="chart-note">Jumlah penduduk pertengahan tahun, 2015–2024 (juta jiwa). Pilih tahun di atas untuk menyorot titiknya di grafik. Sensus 2020 mencatat 270,2 juta jiwa.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Piramida penduduk 2024</h2>
+      <div id="chart-pyramid"></div>
+      <p class="chart-note">Persen penduduk per kelompok umur dan jenis kelamin. Kelompok 10–19 tahun adalah yang terbesar; penduduk 65 tahun ke atas baru 8,1 persen — Indonesia masih dalam masa bonus demografi.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Sepuluh provinsi terpadat, 2024</h2>
+      <table>
+        <thead><tr><th>#</th><th>Provinsi</th><th class="num">Penduduk (juta)</th><th class="num">Kepadatan (jiwa/km²)</th><th>Ibu kota</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">1</td><td>Jawa Barat</td><td class="num">50,4</td><td class="num">1.360</td><td>Bandung</td></tr>
+          <tr><td class="rank">2</td><td>Jawa Timur</td><td class="num">41,8</td><td class="num">875</td><td>Surabaya</td></tr>
+          <tr><td class="rank">3</td><td>Jawa Tengah</td><td class="num">38,3</td><td class="num">1.115</td><td>Semarang</td></tr>
+          <tr><td class="rank">4</td><td>Sumatera Utara</td><td class="num">15,6</td><td class="num">214</td><td>Medan</td></tr>
+          <tr><td class="rank">5</td><td>Banten</td><td class="num">12,4</td><td class="num">1.285</td><td>Serang</td></tr>
+          <tr><td class="rank">6</td><td>DKI Jakarta</td><td class="num">10,6</td><td class="num">15.900</td><td>Jakarta</td></tr>
+          <tr><td class="rank">7</td><td>Sulawesi Selatan</td><td class="num">9,5</td><td class="num">203</td><td>Makassar</td></tr>
+          <tr><td class="rank">8</td><td>Lampung</td><td class="num">9,3</td><td class="num">263</td><td>Bandar Lampung</td></tr>
+          <tr><td class="rank">9</td><td>Sumatera Selatan</td><td class="num">8,9</td><td class="num">97</td><td>Palembang</td></tr>
+          <tr><td class="rank">10</td><td>Riau</td><td class="num">6,9</td><td class="num">79</td><td>Pekanbaru</td></tr>
+        </tbody>
+      </table>
+      <p class="chart-note">Tiga provinsi di Jawa menampung 130,5 juta jiwa — 46 persen penduduk Indonesia. DKI Jakarta adalah provinsi terpadat: 15.900 jiwa per km². <a href="wilayah.html">Lihat peta dan peringkat lengkap di halaman Wilayah →</a></p>
+      <p class="source-note">Sumber data: Badan Pusat Statistik (BPS), publikasi 2019–2025. Angka provinsi adalah perkiraan 2024.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><strong>Portal Statistik Indonesia</strong> — portal statistik nasional orisinal.</span>
+    <span>Sumber data: BPS, publikasi 2019–2025.</span>
+    <span>Terakhir diperbarui: 26 November 2026.</span>
+    <span><a href="data.html">Tabel Data</a> · <a href="wilayah.html">Wilayah</a></span>
+  </div>
+</footer>
+</body>
+</html>

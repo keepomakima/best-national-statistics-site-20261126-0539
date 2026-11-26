@@ -1,0 +1,196 @@
+/* Portal Statistik Indonesia — gaya orisinal.
+   Palet: tinta laut dalam, teal, dan kuning kunyit. Tanpa font eksternal:
+   serif Georgia untuk judul, system sans untuk isi. Tanpa gambar eksternal. */
+
+:root {
+  --ink: #0f2a43;
+  --ink-soft: #33506b;
+  --muted: #6b7a86;
+  --teal: #0e7c7b;
+  --teal-dark: #0a5e5d;
+  --amber: #e8a33d;
+  --paper: #f4f6f8;
+  --card: #ffffff;
+  --line: #dfe6ea;
+  --blue: #1f6f8b;
+  --rust: #c97b4a;
+  --good: #2e7d4f;
+  --bad: #b3372e;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  font-size: 16px;
+}
+a { color: var(--teal-dark); }
+a:hover { color: var(--teal); }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.35rem; border-bottom: 3px solid var(--amber); padding-bottom: .3em; margin-top: 0; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 .8em; }
+small, .muted { color: var(--muted); }
+
+/* Masthead */
+.masthead {
+  background: var(--ink);
+  color: #fff;
+  padding: 18px 0 0;
+}
+.masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 18px;
+}
+.brand { font-family: Georgia, serif; font-size: 1.7rem; font-weight: 700; color: #fff; text-decoration: none; }
+.brand span { color: var(--amber); }
+.tagline { color: #b9c9d6; font-size: .95rem; }
+.dateline { margin-left: auto; color: #b9c9d6; font-size: .85rem; text-align: right; }
+nav.mainnav { background: var(--teal-dark); margin-top: 16px; }
+nav.mainnav ul {
+  max-width: 1080px; margin: 0 auto; padding: 0 12px;
+  list-style: none; display: flex; flex-wrap: wrap; gap: 2px;
+}
+nav.mainnav a {
+  display: block; padding: 10px 13px; color: #d7eceb; text-decoration: none;
+  font-size: .95rem; border-bottom: 3px solid transparent;
+}
+nav.mainnav a:hover { color: #fff; background: rgba(255,255,255,.08); }
+nav.mainnav a.active { color: #fff; border-bottom-color: var(--amber); font-weight: 700; }
+
+/* Layout */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 24px 20px 40px; }
+.page-head { margin-bottom: 20px; }
+.page-head p.lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 72ch; }
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: 0 1px 3px rgba(15,42,67,.06);
+}
+.card.wide { grid-column: 1 / -1; }
+.card h2 { margin-top: 0; }
+.card h3 { margin-top: 0; }
+
+/* Strip indikator headline */
+.indicators { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 18px; }
+.indicator {
+  background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--teal);
+  border-radius: var(--radius); padding: 12px 14px;
+}
+.indicator .lbl { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.indicator .val { font-family: Georgia, serif; font-size: 1.35rem; font-weight: 700; line-height: 1.15; margin: 2px 0; white-space: nowrap; }
+.indicator .val small { font-size: .85rem; font-weight: 400; color: var(--muted); font-family: inherit; }
+.indicator .chg { font-size: .85rem; }
+.up { color: var(--good); }
+.down { color: var(--bad); }
+.flat { color: var(--muted); }
+
+/* Tabel */
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+thead th { background: #eef3f5; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; color: var(--ink-soft); }
+tbody tr:hover { background: #f7fafb; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { background: #e2ecee; }
+th.sorted-asc::after { content: " ▲"; }
+th.sorted-desc::after { content: " ▼"; }
+.rank { font-weight: 700; color: var(--teal-dark); }
+
+/* Kontrol */
+.controls { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin: 0 0 14px; }
+.controls label { font-weight: 600; font-size: .95rem; }
+select, input[type="search"], input[type="text"] {
+  font: inherit; padding: 8px 10px; border: 1px solid #b9c6cd; border-radius: 6px; background: #fff; color: var(--ink);
+}
+select:focus, input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+button {
+  font: inherit; padding: 8px 14px; border: 1px solid var(--teal-dark); border-radius: 6px;
+  background: var(--teal); color: #fff; cursor: pointer;
+}
+button:hover { background: var(--teal-dark); }
+button.ghost { background: #fff; color: var(--teal-dark); }
+button.ghost[aria-pressed="true"] { background: var(--teal-dark); color: #fff; }
+
+/* Rilis */
+.releases { list-style: none; margin: 0; padding: 0; }
+.releases li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.releases li:last-child { border-bottom: 0; }
+.releases .date { font-size: .82rem; font-weight: 700; color: var(--teal-dark); text-transform: uppercase; letter-spacing: .04em; }
+.releases h3 { margin: .15em 0 .2em; }
+.releases h3 a { color: var(--ink); text-decoration: none; }
+.releases h3 a:hover { color: var(--teal); }
+
+/* Peta */
+.map-wrap { position: relative; }
+.map-wrap svg { width: 100%; height: auto; display: block; }
+.province { cursor: pointer; stroke: #fff; stroke-width: 1.2; transition: opacity .15s; }
+.province:hover { opacity: .75; }
+.province.selected { stroke: var(--ink); stroke-width: 2.5; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; color: var(--muted); margin-top: 8px; }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+.detail-panel { background: #eef6f5; border: 1px solid #cfe3e1; border-radius: var(--radius); padding: 14px 16px; margin-top: 12px; }
+.detail-panel h3 { margin-bottom: .2em; }
+.detail-panel dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; margin: 0; }
+.detail-panel dt { font-weight: 700; }
+.detail-panel dd { margin: 0; }
+
+/* Daftar tautan halaman */
+.pagelinks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pagelinks a {
+  display: block; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: #fbfcfd; text-decoration: none; color: var(--ink); font-weight: 600;
+}
+.pagelinks a:hover { border-color: var(--teal); background: #eef6f5; }
+.pagelinks a small { display: block; font-weight: 400; color: var(--muted); }
+
+/* Catatan kaki */
+.source-note { font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; margin-top: 18px; }
+footer.site {
+  background: var(--ink); color: #b9c9d6; padding: 22px 0; font-size: .9rem;
+}
+footer.site .wrap { padding-top: 0; padding-bottom: 0; display: flex; flex-wrap: wrap; gap: 6px 28px; }
+footer.site a { color: #fff; }
+.kpi-big { font-family: Georgia, serif; font-size: 2.1rem; font-weight: 700; }
+.kpi-big small { font-size: 1rem; color: var(--muted); font-weight: 400; }
+.chart-note { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+.legend-list { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; font-size: .9rem; }
+.legend-list i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.stat-row { display: flex; flex-wrap: wrap; gap: 24px; }
+.stat-row > div { min-width: 140px; }
+.stat-row .k { font-size: .82rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+
+/* Responsif: phone */
+@media (max-width: 900px) {
+  .indicators { grid-template-columns: repeat(3, 1fr); }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .pagelinks { grid-template-columns: 1fr 1fr; }
+  .dateline { margin-left: 0; text-align: left; }
+}
+@media (max-width: 560px) {
+  h1 { font-size: 1.55rem; }
+  .brand { font-size: 1.35rem; }
+  .indicators { grid-template-columns: repeat(2, 1fr); }
+  .indicator .val { font-size: 1.25rem; }
+  nav.mainnav ul { gap: 0; }
+  nav.mainnav a { padding: 9px 10px; font-size: .88rem; }
+  .wrap { padding: 18px 14px 32px; }
+  .card { padding: 14px; }
+  .pagelinks { grid-template-columns: 1fr; }
+  table { font-size: .85rem; }
+  th, td { padding: 6px 6px; }
+  .legend-list { grid-template-columns: 1fr; }
+}

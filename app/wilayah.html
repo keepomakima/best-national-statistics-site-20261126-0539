@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wilayah — Portal Statistik Indonesia</title>
+<meta name="description" content="Wilayah Indonesia: peta skematik provinsi, peringkat sepuluh provinsi terpadat, dan detail tiap provinsi.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body data-page="regions">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="brand" href="index.html">Portal Statistik <span>Indonesia</span></a>
+    <span class="tagline">Angka resmi Indonesia, dibaca dalam satu tempat</span>
+    <span class="dateline">Data terakhir diperbarui:<br>26 November 2026</span>
+  </div>
+  <nav class="mainnav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="penduduk.html">Penduduk</a></li>
+      <li><a href="ekonomi.html">Ekonomi</a></li>
+      <li><a href="harga.html">Harga &amp; Inflasi</a></li>
+      <li><a href="ketenagakerjaan.html">Ketenagakerjaan</a></li>
+      <li><a href="wilayah.html" class="active" aria-current="page">Wilayah</a></li>
+      <li><a href="data.html">Tabel Data</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Wilayah</h1>
+    <p class="lede">Indonesia membentang dari Aceh sampai Papua: 38 provinsi di lima pulau besar dan ribuan pulau kecil. Klik provinsi di peta untuk melihat jumlah penduduk, kepadatan, dan ibu kotanya.</p>
+  </div>
+
+  <div class="grid">
+    <section class="card wide">
+      <h2>Peta penduduk Indonesia, 2024</h2>
+      <div class="map-wrap">
+        <svg id="map" viewBox="0 0 1000 360" role="img" aria-label="Peta skematik Indonesia, diwarnai menurut jumlah penduduk tiap provinsi"></svg>
+      </div>
+      <div class="legend" aria-label="Legenda warna peta">
+        <span><i style="background:#0a5e5d"></i>≥ 40 juta</span>
+        <span><i style="background:#0e7c7b"></i>15–40 juta</span>
+        <span><i style="background:#3a9a98"></i>9–15 juta</span>
+        <span><i style="background:#7cc4c2"></i>5–9 juta</span>
+        <span><i style="background:#b5dcd9"></i>2–5 juta</span>
+        <span><i style="background:#dceeed"></i>&lt; 2 juta</span>
+      </div>
+      <div class="detail-panel" id="province-detail"></div>
+      <p class="chart-note">Peta skematik yang digambar sendiri untuk portal ini — bentuk pulau disederhanakan dan bukan salinan peta mana pun. Angka penduduk adalah perkiraan 2024.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Sepuluh provinsi terpadat, 2024</h2>
+      <div class="controls">
+        <span>Urutkan menurut:</span>
+        <button type="button" data-sort="pop" data-dir="desc" aria-pressed="true">Penduduk</button>
+        <button type="button" data-sort="density" aria-pressed="false">Kepadatan</button>
+        <button type="button" data-sort="name" aria-pressed="false">Nama</button>
+      </div>
+      <div id="chart-top-prov"></div>
+      <table>
+        <thead><tr><th>#</th><th>Provinsi</th><th class="num">Penduduk (juta)</th><th class="num">Kepadatan (jiwa/km²)</th><th>Ibu kota</th></tr></thead>
+        <tbody id="province-rows"></tbody>
+      </table>
+      <p class="chart-note">Klik nama provinsi di tabel untuk melihat detailnya di peta. Jawa Barat, Jawa Timur, dan Jawa Tengah — ketiganya di Pulau Jawa — menampung 46 persen penduduk Indonesia, meski luas ketiganya hanya sekitar 7 persen wilayah daratan.</p>
+      <p class="source-note">Sumber data: Badan Pusat Statistik (BPS), publikasi 2019–2025. Angka provinsi adalah perkiraan 2024.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><strong>Portal Statistik Indonesia</strong> — portal statistik nasional orisinal.</span>
+    <span>Sumber data: BPS, publikasi 2019–2025.</span>
+    <span>Terakhir diperbarui: 26 November 2026.</span>
+    <span><a href="data.html">Tabel Data</a> · <a href="penduduk.html">Penduduk</a></span>
+  </div>
+</footer>
+</body>
+</html>
